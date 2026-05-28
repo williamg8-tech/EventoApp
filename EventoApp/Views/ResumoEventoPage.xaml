@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EventoApp.ResumoEventoPage"
+             Title="">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+
+            <Label Text="Evento Cadastrado!" 
+                   FontSize="24" FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="White" 
+                   Margin="0,10,0,10"/>
+
+            <Border StrokeShape="RoundRectangle 10" 
+                    Padding="20" BackgroundColor="{StaticResource White}">
+                <VerticalStackLayout Spacing="12">
+
+                    <Label Text="{Binding Nome}" 
+                           FontSize="22" 
+                           TextColor="Black"
+                           FontAttributes="Bold" 
+                           HorizontalOptions="Center" 
+                           HorizontalTextAlignment="Center"/>
+                    <BoxView HeightRequest="1" Color="{StaticResource Gray200}" />
+
+                    <Label Text="Local:" 
+                           TextColor="Black"
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Local}" 
+                           FontSize="16" 
+                           TextColor="Black"
+                           Margin="0,0,0,5"/>
+
+                    <Grid ColumnDefinitions="*, *" RowDefinitions="Auto, Auto" RowSpacing="5">
+                        <Label Grid.Row="0" 
+                               Grid.Column="0" 
+                               Text="Início:" 
+                               TextColor="Black"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Row="1" 
+                               Grid.Column="0" 
+                               Text="{Binding DataInício, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                               TextColor="Black"
+                               FontSize="16"/>
+
+                        <Label Grid.Row="0" 
+                               Grid.Column="1" 
+                               Text="Término:" 
+                               TextColor="Black"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Row="1" 
+                               Grid.Column="1" 
+                               TextColor="Black"
+                               Text="{Binding DataTérmino, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                               FontSize="16"/>
+                    </Grid>
+
+                    <Label 
+                        Text="Duração Estimada:" 
+                        TextColor="Black"
+                        FontAttributes="Bold"/>
+                    <Label 
+                        Text="{Binding DuracaoEmDias, StringFormat='{}{0} dia(s)'}" 
+                        FontSize="16" 
+                        TextColor="Black"
+                        FontAttributes="Bold"/>
+
+                    <BoxView HeightRequest="1" 
+                             Color="{StaticResource Gray200}" />
+
+                    <Grid ColumnDefinitions="*, *" 
+                          RowDefinitions="Auto, Auto" 
+                          RowSpacing="5">
+                        <Label Grid.Row="0" 
+                               Grid.Column="0" 
+                               Text="Participantes:" 
+                               TextColor="Black"
+                               FontAttributes="Bold"/>
+                        <Label Grid.Row="1" 
+                               Grid.Column="0" 
+                               Text="{Binding NumeroParticipantes}" 
+                               TextColor="Black"
+                               FontSize="16"/>
+
+                        <Label Grid.Row="0" 
+                               Grid.Column="1" 
+                               TextColor="Black"
+                               Text="Custo por Pessoa:" 
+                               FontAttributes="Bold"/>
+                        <Label Grid.Row="1" 
+                               Grid.Column="1" 
+                               TextColor="Black"
+                               Text="{Binding CustoPorParticipante, StringFormat='{}{0:C}'}" 
+                               FontSize="16"/>
+                    </Grid>
+
+                    <BoxView HeightRequest="1" 
+                             Color="{StaticResource Gray200}" />
+
+                    <Label Text="CUSTO TOTAL DO EVENTO:" 
+                           FontAttributes="Bold" 
+                           TextColor="Black"
+                           HorizontalOptions="Center"/>
+                    <Label Text="{Binding CustoTotal, StringFormat='{}{0:C}'}" 
+                           FontSize="26" FontAttributes="Bold" 
+                           TextColor="Green" 
+                           HorizontalOptions="Center"/>
+
+                </VerticalStackLayout>
+            </Border>
+
+            <Button Text="Voltar ao Cadastro" 
+                     FontAttributes="Bold" 
+                    Clicked="OnVoltarClicked"
+                    BackgroundColor="White" 
+                    TextColor="Black"
+                    HeightRequest="45" 
+                    CornerRadius="10" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
