@@ -3,8 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="EventoApp.ResumoEventoPage"
              Title="">
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
+    
+        <VerticalStackLayout VerticalOptions="CenterAndExpand"
+             Padding="10"
+             Spacing="10">
 
             <Label Text="Evento Cadastrado!" 
                    FontSize="24" FontAttributes="Bold" 
@@ -119,5 +121,5 @@
                     CornerRadius="10" />
 
         </VerticalStackLayout>
-    </ScrollView>
+    
 </ContentPage>

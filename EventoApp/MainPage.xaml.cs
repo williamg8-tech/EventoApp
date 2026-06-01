@@ -8,14 +8,19 @@
         {
             InitializeComponent();
 
-            // Instancia o objeto e define como o contexto de dados da página
-            NovoEvento = new Evento { NumeroParticipantes = 0 };
+            NovoEvento = new Evento
+            {
+                NumeroParticipantes = 0,
+                DataInício = DateTime.Today,
+                DataTérmino = DateTime.Today
+            };
+
             BindingContext = NovoEvento;
         }
 
         private async void OnCadastrarClicked(object sender, EventArgs e)
         {
-            // Validação básica de consistência de datas antes de avançar
+            
             if (NovoEvento.DataTérmino < NovoEvento.DataInício)
             {
                 await DisplayAlert("Erro nas Datas", "A data de término não pode ser anterior à data de início.", "OK");
@@ -28,7 +33,7 @@
                 return;
             }
 
-            // Navega para a página de resumo, passando o objeto preenchido no construtor
+            
             await Navigation.PushAsync(new ResumoEventoPage(NovoEvento));
         }
     }
